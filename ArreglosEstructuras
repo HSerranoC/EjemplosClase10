@@ -1,0 +1,78 @@
+using System;
+
+namespace ArreglosEstructuras
+{
+	class Program
+	{
+		
+		struct Persona
+		{
+			public string Nombre;
+			public int Edad;
+			public string Direccion;
+			public int Telefono;
+		}
+		
+		static void MostrarRegistros(Persona[] p, int NumRegistros)
+		{
+			for (int i = 0; i < NumRegistros; i++) {
+				Console.Write("\n\tRegistro No "+i);
+				Console.Write("\n\tNombre: "+p[i].Nombre);
+				Console.Write("\n\tEdad: "+p[i].Edad);
+				Console.Write("\n\tDirección: "+p[i].Direccion);
+				Console.Write("\n\tTeléfono: "+p[i].Telefono);
+				Console.Write("\n\t================================================");
+			}
+		}
+		
+		public static void Main(string[] args)
+		{
+			Console.Title = "ARREGLO DE ESTRUCTURAS";
+			int NumRegistros,Op,Op2;
+			
+			Console.Write("\n\t¿Cuántos registros desea almacenar?  ");
+			NumRegistros = int.Parse(Console.ReadLine());
+			
+			Persona[] Objeto = new Persona[NumRegistros];
+			do{
+				Console.Clear();
+			Console.Write("\n\tMENÚ");
+			Console.Write("\n\t1.INGRESAR DATOS ");
+			Console.Write("\n\t2.MOSTRAR DATOS");
+			Console.Write("\n\t¿OPCIÓN?  ");
+			Op = int.Parse(Console.ReadLine());
+			switch (Op) {//switc
+				case 1:
+					Console.Clear();
+					for (int i = 0; i < NumRegistros; i++) {
+						Console.Write("\n\tRegistro No  "+i);
+						Console.Write("\n\tNombre: ");
+						Objeto[i].Nombre = Console.ReadLine();
+						Console.Write("\n\tEdad: ");
+						Objeto[i].Edad = int.Parse(Console.ReadLine());
+						Console.Write("\n\tDirección: ");
+						Objeto[i].Direccion = Console.ReadLine();
+						Console.Write("\n\tTeléfono: ");
+						Objeto[i].Telefono = int.Parse(Console.ReadLine());
+					}
+					
+					break;
+				case 2:
+					Console.Clear();
+					MostrarRegistros(Objeto,NumRegistros);
+					break;
+				default:
+					Console.Write("\n\tOpción no válida...");
+					break;
+			}//switch
+			Console.Write("\n\t1.Continuar / 0.Salir  ");
+			Op2 = int.Parse(Console.ReadLine());
+			if (Op2==0) {
+				Environment.Exit(0);
+			}
+			}while(Op2==1);
+			Console.Write("\n");
+			Console.ReadKey(true);
+		}
+	}
+}
