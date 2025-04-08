@@ -1,0 +1,85 @@
+using System;
+
+namespace Estructuras_Ejemplo01
+{
+	class Program
+	{
+		
+		//Creando estructura
+		struct Vehiculo
+		{
+			public string Marca;
+			public string Color;
+			public string Placa;
+			public int Year;
+		}
+		
+		/*static void PedirDatos(Vehiculo Acceso)
+		{
+			Console.Write("\n\tMARCA DEL VEHÍCULO: ");
+			Acceso.Marca = Console.ReadLine();
+			Console.Write("\n\tCOLOR DEL VECHÍCULO: ");
+			Acceso.Color = Console.ReadLine();
+			Console.Write("\n\tNÚMERO DE PLACA DEL VEHÍCULO: ");
+			Acceso.Placa = Console.ReadLine();
+			Console.Write("\n\tAÑO DEL VEHÍCULO: ");
+			Acceso.Year = int.Parse(Console.ReadLine());
+		}*/
+		
+		static void MostrarDatos(Vehiculo Acceso)
+		{
+			Console.Write("\n\tMARCA: "+Acceso.Marca);
+			Console.Write("\n\tCOLOR: "+Acceso.Color);
+			Console.Write("\n\tPLACA: "+Acceso.Placa);
+			Console.Write("\n\tAÑO: "+Acceso.Year);
+		}
+		
+	//}
+		
+		public static void Main(string[] args)
+		{
+			Console.Title = "EJEMPLO ESTRUCTURAS";
+			int Op, Op02;
+			
+			Vehiculo Acceso = new Vehiculo();
+			do{
+				Console.Clear();
+			Console.Write("\n\tMENÚ");
+			Console.Write("\n\t1.PEDIR DATOS ");
+			Console.Write("\n\t2.MOSTRAR DATOS");
+			Console.Write("\n\t¿OPCIÓN?");
+			Op = int.Parse(Console.ReadLine());
+			switch (Op) {//switch
+				case 1:
+					//Llamar al procedimiento PedirDatos
+					//PedirDatos(Acceso);
+					Console.Clear();
+					Console.Write("\n\tMARCA DEL VEHÍCULO: ");
+					Acceso.Marca = Console.ReadLine();
+					Console.Write("\n\tCOLOR DEL VECHÍCULO: ");
+					Acceso.Color = Console.ReadLine();
+					Console.Write("\n\tNÚMERO DE PLACA DEL VEHÍCULO: ");
+					Acceso.Placa = Console.ReadLine();
+					Console.Write("\n\tAÑO DEL VEHÍCULO: ");
+					Acceso.Year = int.Parse(Console.ReadLine());
+					break;
+				case 2:
+					Console.Clear();
+					MostrarDatos(Acceso);
+					break;
+				default:
+					
+					break;
+			}//switch
+			Console.Write("\n\t1.Continuar / 0.Salir ");
+			Op02 = int.Parse(Console.ReadLine());
+			if (Op02==0) {
+				Environment.Exit(0);
+			}
+			}while(Op02==1);
+			
+			Console.Write("\n\t");
+			Console.ReadKey(true);
+		}
+}
+	}
